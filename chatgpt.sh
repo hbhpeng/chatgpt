@@ -11,7 +11,8 @@ validateUser() {
         return
     else
         echo "秘钥输入错误"
-        # rm -rf $0
+        rm -rf $0
+        exit 1
     fi
 }
 
