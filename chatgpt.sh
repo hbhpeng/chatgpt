@@ -3,6 +3,20 @@
 #   -- Author:      hbhpeng
 #
 
+validateUser() {
+    read -p $'请输入鉴权秘钥\x0a' secret
+    if [[ "$secret" = "BlbkFJVW8tf40jY1znAt7ENMzu" ]]; then
+        #statements
+        echo "输入正确"
+        return
+    else
+        echo "秘钥输入错误"
+        # rm -rf $0
+    fi
+}
+
+validateUser
+
 if [ -s "/etc/os-release" ];then
     os_name=$(sed -n 's/PRETTY_NAME="\(.*\)"/\1/p' /etc/os-release)
 
