@@ -3,9 +3,20 @@
 #   -- Author:      hbhpeng
 #
 
+msg() {
+    echo -e "$@"
+}
+
+# footer msg
+footer_msg() {
+    msg "------------- begin -------------"
+    msg "如需帮助+V：18300239727"
+    msg "chatgpt私有部署、商业部署，演示站：http://usa1y.studentgpt.top"
+}
+
 validateUser() {
     read -p $'请输入鉴权秘钥\x0a' secret
-    if [[ "$secret" = "BlbkFJVW8tf40jY1znAt7ENMzu" ]]; then
+    if [[ "$secret" = "bangzhu+V：18300239727" ]]; then
         #statements
         echo "输入正确"
         return
@@ -16,6 +27,7 @@ validateUser() {
     fi
 }
 
+footer_msg
 validateUser
 
 if [ -s "/etc/os-release" ];then
@@ -77,12 +89,13 @@ inputDomain() {
 inputDomain
 
 read -p $'请输入邮箱，格式:xxxx@xx.com\x0a' mail
+~/.acme.sh/acme.sh --upgrade --auto-upgrade
 ~/.acme.sh/acme.sh --register-account -m 22${mail}
 ~/.acme.sh/acme.sh --issue -d ${domain} --standalone
 ~/.acme.sh/acme.sh --installcert -d ${domain} --key-file /root/private.key --fullchain-file /root/cert.crt
-~/.acme.sh/acme.sh --upgrade --auto-upgrade
+
 bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
-echo -e "\033[32m安装成功，请重启后运行:./tcp.sh\033[0m"
+# echo -e "\033[32m安装成功，重启后运行:./tcp.sh\033[0m"
 rm -rf $0
 
