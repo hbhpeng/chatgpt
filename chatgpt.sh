@@ -4,7 +4,7 @@
 #
 
 msg() {
-    echo -e "$@"
+    echo -e "\033[32m${@}\033[0m"
 }
 
 # footer msg
@@ -77,7 +77,7 @@ apt-get install cron
 curl https://get.acme.sh | sh
 
 inputDomain() {
-    read -p $'请输入完整域名，比如：studentgpt.studentgpt.top\x0a' domain
+    read -p $'请输入完整域名，比如：yuanyouyuan.studentgpt.top\x0a' domain
     if [[ "$domain" =~ ^.+\..+\..+ ]]; then
         echo 'OK'
     else
