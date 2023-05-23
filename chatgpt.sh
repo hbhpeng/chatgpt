@@ -16,7 +16,7 @@ footer_msg() {
 
 validateUser() {
     read -p $'请输入鉴权秘钥\x0a' secret
-    if [[ "$secret" = "bangzhu+V：18300239727" ]]; then
+    if [[ "$secret" = "2597415269" ]]; then
         #statements
         echo "输入正确"
         return
