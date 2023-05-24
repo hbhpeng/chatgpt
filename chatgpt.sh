@@ -11,12 +11,13 @@ msg() {
 footer_msg() {
     msg "------------- begin -------------"
     msg "如需帮助+V：18300239727"
+    msg "如遇密码错误请+V：18300239727"
     msg "chatgpt私有部署、商业部署，演示站：http://usa1y.studentgpt.top"
 }
 
 validateUser() {
     read -p $'请输入鉴权秘钥\x0a' secret
-    if [[ "$secret" = "2597415269" ]]; then
+    if [[ "$secret" = "573892041520631" ]]; then
         #statements
         echo "输入正确"
         return
